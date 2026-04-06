@@ -1,23 +1,22 @@
 public class helloApp {
     public static void main(String[] args) {
 
-        // Case 1: No arguments → default message
+        // Case 1: No arguments
         if (args.length == 0) {
             System.out.println("Hello, World!");
         }
         else {
-            // Use StringBuilder for efficient string creation
-            StringBuilder names = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
             // Enhanced for loop
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", "); // add comma only after first name
-                }
-                names.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            // Final output
+            // Remove trailing ", "
+            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            // Output
             System.out.println("Hello, " + names + "!");
         }
     }
